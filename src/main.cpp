@@ -4,31 +4,27 @@
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
-int main(int, char**){
-    std::cout << "Hello, from spectrumCraft!\n";
-    
+int main(int, char**){    
+    std::cout << "hello\n";
     SDL_Window* window = NULL;
 
-    SDL_Surface* screenSurface = NULL;
-
-    //Initialize SDL
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    {
-        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+    if(SDL_Init(SDL_INIT_VIDEO) < 0) {
+        std::cout << "video cannot be initialized" << SDL_GetError() << "\n";
     }
-     else
-    {
-        //Create window
-        window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-        if( window == NULL )
-        {
-            printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+    else {
+        window = SDL_CreateWindow("Spectrumcraft", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+                              SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+
+        if (window == NULL) {
+            std::cout<< "Window cannot be created" << SDL_GetError() << "\n";
+        }
+        else {
+            SDL_UpdateWindowSurface(window);
+            SDL_Delay(2000);
         }
     }
 
-    SDL_DestroyWindow( window );
-
-    //Quit SDL subsystems
+    SDL_DestroyWindow(window);
     SDL_Quit();
 
     return 0;
