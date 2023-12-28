@@ -2,11 +2,6 @@
 
 
 ## Compiling :- 
-
-```
-hello
-```
-
 ### Windows-
 - Put the lib folder, include folder inside the src folder
 - Put the `SDL2.dll` file from the bin folder in the main directory outside of src.
