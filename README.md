@@ -26,15 +26,15 @@ hello
 
 OR
 
-    ```
-    make
-    ```
+```
+make
+```
 
 
 ### Linux-
 - Just install the libsdl2-dev library - 
 
-    ```shell
+    ```
     sudo apt-get install libsdl2-dev
     ```
 
