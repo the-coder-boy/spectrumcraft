@@ -1,8 +1,11 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include "headers/SpectrumWindow.hpp"
+#include "headers/SpectrumFiles.hpp"
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
+
+SpectrumFiles Files;
 
 SpectrumWindow::SpectrumWindow()
 {
@@ -23,14 +26,21 @@ SpectrumWindow::SpectrumWindow()
         {
             windowSurface = SDL_GetWindowSurface(window);
             bool spectrumCraftRun = true;
-            SDL_Event ev;
+            
             while (spectrumCraftRun)
             {
-                while (SDL_PollEvent(&ev) != 0)
+                while (SDL_PollEvent(&Events) != 0)
                 {
-                    if (ev.type == SDL_QUIT)
+                    if (Events.type == SDL_QUIT)
                     {
                         spectrumCraftRun = false;
+                    }
+
+                    else if (Events.type == SDL_DROPFILE)
+                    {
+                        DroppedMusic = Events.drop.file;
+                        Files.TakingMusics(DroppedMusic);
+                        SDL_free(DroppedMusic);
                     }
                 }
 

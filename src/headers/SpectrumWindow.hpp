@@ -11,6 +11,8 @@ private:
     const char *TITLE = "SpectrumCraft";
     SDL_Window *window = NULL;
     SDL_Surface *windowSurface = NULL;
+    char *DroppedMusic;
+    SDL_Event Events;
 
 public:
     SpectrumWindow();

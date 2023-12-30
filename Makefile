@@ -1,4 +1,4 @@
-OBJS=src/main.cpp src/spectrumWindow.cpp
+OBJS=src/main.cpp src/spectrumWindow.cpp src/spectrumFiles.cpp
 
 OBJ_NAME=SpectrumCraft
 
